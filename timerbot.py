@@ -66,4 +66,5 @@ async def on_message(message):
 			await client.send_message(message.channel, "Sap is ready @here")
 			sap = None
 	
+print(os.getenv("BOT_TOKEN"))	
 client.run(os.getenv("BOT_TOKEN"))
