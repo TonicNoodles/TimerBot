@@ -23,7 +23,7 @@ async def on_message(message):
 	
 	if message.author.bot or not message.server:
 		await client.send_message(message.channel, "Test.")
-		await client.send_message(message.channel, "Test.")
+		await client.send_message(message.channel, "Test.") 
 		return
 	
 	global scar
