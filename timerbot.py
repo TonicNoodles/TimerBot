@@ -21,11 +21,10 @@ async def on_ready():
 async def on_message(message):
 	print(message.content)
 	
-	if message.author.bot: return
-    if message.server is None: return 
-		await client.send_message(message.channel, "Test")
-		await client.send_message(message.channel, "Test")
-    await client.process_commands(message)
+	if message.author.bot or not message.server:
+		await client.send_message(message.channel, "Test.")
+		await client.send_message(message.channel, "Test.")
+		return
 	
 	global scar
 	global paste
