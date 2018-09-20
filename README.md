@@ -18,3 +18,5 @@ If a user tries to run a timer when one is already running it will alert them th
 A White Check Mark is added to the users command message if it was accepted by the bot.
 
 A No Entry Sign is added to the users command message if it was not accepted by the bot.
+
+It also reloads when I send updates to GitHub! FUN!
