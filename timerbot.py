@@ -4,6 +4,7 @@ from datetime import timedelta
 import re
 import time
 import asyncio
+import os
 
 client = discord.Client()
 
@@ -18,6 +19,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+	print(message.content)
+	
 	if message.author.bot or not message.server:
 		return
 	
@@ -63,4 +66,4 @@ async def on_message(message):
 			await client.send_message(message.channel, "Sap is ready @here")
 			sap = None
 	
-client.run("NDg3Njk0MTgwNzkwMDQyNjQ0.DnRZIw.wqS1e0D3tc_VoVkd12gTq5rSXAI")
+client.run(os.getenv("BOT_TOKEN"))
