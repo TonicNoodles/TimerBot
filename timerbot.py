@@ -21,7 +21,10 @@ async def on_ready():
 async def on_message(message):
 	print(message.content)
 	
-	if message.author.bot or not message.server:
+	if message.author.bot: 
+		return
+		
+	if not message.server:
 		await client.send_message(message.channel, "Test.")
 		await client.send_message(message.channel, "Test.")
 		return
