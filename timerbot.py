@@ -11,6 +11,7 @@ client = discord.Client()
 scar = None # 45 min
 paste = None # 2 hr
 sap = None # 4 hr
+apaste = None # 2 hr
 
 @client.event
 async def on_ready():
@@ -75,7 +76,7 @@ async def on_message(message):
 	elif cmd == "apaste":
 		if apaste:
 			await client.add_reaction(message, "🚫")
-			remaining = timedelta(seconds = 7200) - (datetime.now() - sap)
+			remaining = timedelta(seconds = 7200) - (datetime.now() - apaste)
 			await client.send_message(message.channel, "An aberration paste timer is already running. Time remaining: " + str(remaining).split(".")[0])
 		else:
 			apaste = datetime.now()
