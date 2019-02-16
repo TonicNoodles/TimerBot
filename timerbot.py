@@ -32,6 +32,7 @@ async def on_message(message):
 	global scar
 	global paste
 	global sap
+	global apaste
 	
 	cmd = re.sub("[^A-Za-z]", "", message.content.lower())
 
@@ -70,6 +71,18 @@ async def on_message(message):
 			await asyncio.sleep(14400)
 			await client.send_message(message.channel, "Sap is ready @here")
 			sap = None
+			
+	elif cmd == "apaste":
+		if apaste:
+			await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 7200) - (datetime.now() - sap)
+			await client.send_message(message.channel, "An aberration paste timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			apaste = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(7200)
+			await client.send_message(message.channel, "Aberration paste is ready @here")
+			apaste = None
 	
 print(os.getenv("BOT_TOKEN"))	
 client.run(os.getenv("BOT_TOKEN"))
