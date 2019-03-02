@@ -113,7 +113,7 @@ async def on_message(message):
 			crops = datetime.now()
 			await client.add_reaction(message, "✅")
 			await asyncio.sleep(14400)
-			await client.send_message(message.channel, "The crops are ready <@&550711821682606085>")
+			await client.send_message(message.channel, "The crops are ready @here")
 			crops = None
 				
 	
