@@ -8,10 +8,13 @@ import os
 
 client = discord.Client()
 
-scar = None # 45 min
 paste = None # 2 hr
 sap = None # 4 hr
 apaste = None # 2 hr
+desert = None # 6 hr
+ice = None # 6 hr
+forest = None # 6 hr
+crops = None # 4 hr
 
 @client.event
 async def on_ready():
@@ -37,19 +40,7 @@ async def on_message(message):
 	
 	cmd = re.sub("[^A-Za-z]", "", message.content.lower())
 
-	if cmd == "scar":
-		if scar:
-			await client.add_reaction(message, "🚫")
-			remaining = timedelta(seconds = 2700) - (datetime.now() - scar)
-			await client.send_message(message.channel, "A scar timer is already running. Time remaining: " + str(remaining).split(".")[0])
-		else:
-			scar = datetime.now()
-			await client.add_reaction(message, "✅")
-			await asyncio.sleep(2700)
-			await client.send_message(message.channel, "Scar is ready @here")
-			scar = None
-	
-	elif cmd == "paste":
+	if cmd == "paste":
 		if paste:
 			await client.add_reaction(message, "🚫")
 			remaining = timedelta(seconds = 7200) - (datetime.now() - paste)
@@ -60,19 +51,7 @@ async def on_message(message):
 			await asyncio.sleep(7200)
 			await client.send_message(message.channel, "Paste is ready @here")
 			paste = None
-	
-	elif cmd == "sap":
-		if sap:
-			await client.add_reaction(message, "🚫")
-			remaining = timedelta(seconds = 14400) - (datetime.now() - sap)
-			await client.send_message(message.channel, "A sap timer is already running. Time remaining: " + str(remaining).split(".")[0])
-		else:
-			sap = datetime.now()
-			await client.add_reaction(message, "✅")
-			await asyncio.sleep(14400)
-			await client.send_message(message.channel, "Sap is ready @here")
-			sap = None
-			
+		
 	elif cmd == "apaste":
 		if apaste:
 			await client.add_reaction(message, "🚫")
@@ -84,6 +63,55 @@ async def on_message(message):
 			await asyncio.sleep(7200)
 			await client.send_message(message.channel, "Aberration paste is ready @here")
 			apaste = None
+			
+	elif cmd == "desert":
+		if desert:
+			await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 21600) - (datetime.now() - desert)
+			await client.send_message(message.channel, "The Desert Titan timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			desert = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(21600)
+			await client.send_message(message.channel, "The Desert Titan is ready <@&550711821682606085>")
+			desert = None		
+	
+	elif cmd == "ice":
+		if ice:
+			await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 21600) - (datetime.now() - ice)
+			await client.send_message(message.channel, "The Ice Titan timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			ice = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(21600)
+			await client.send_message(message.channel, "The Ice Titan is ready <@&550711821682606085>")
+			ice = None		
+	
+	elif cmd == "forest":
+		if forest:
+			await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 21600) - (datetime.now() - forest)
+			await client.send_message(message.channel, "The Forest Titan timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			forest = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(21600)
+			await client.send_message(message.channel, "The Forest Titan is ready <@&550711821682606085>")
+			forest = None
+			
+	elif cmd == "crops":
+		if crops:
+			await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 14400) - (datetime.now() - crops)
+			await client.send_message(message.channel, "The crops timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			crops = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(14400)
+			await client.send_message(message.channel, "The crops are ready <@&550711821682606085>")
+			crops = None
+				
 	
 print(os.getenv("BOT_TOKEN"))	
 client.run(os.getenv("BOT_TOKEN"))
