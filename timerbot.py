@@ -37,6 +37,10 @@ async def on_message(message):
 	global paste
 	global sap
 	global apaste
+	global desert
+	global ice
+	global forest
+	global crops
 	
 	cmd = re.sub("[^A-Za-z]", "", message.content.lower())
 
