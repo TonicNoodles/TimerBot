@@ -10,7 +10,9 @@ client = discord.Client()
 
 paste = None # 2 hr
 sap = None # 4 hr
-apaste = None # 2 hr
+paste279 = None # 2 hr
+paste284 = None # 2 hr
+paste299 = None # 2 hr
 desert = None # 6 hr
 ice = None # 6 hr
 forest = None # 6 hr
@@ -36,7 +38,9 @@ async def on_message(message):
 	global scar
 	global paste
 	global sap
-	global apaste
+	global paste279
+	global paste284
+	global paste299
 	global desert
 	global ice
 	global forest
@@ -53,20 +57,44 @@ async def on_message(message):
 			paste = datetime.now()
 			await client.add_reaction(message, "✅")
 			await asyncio.sleep(7200)
-			await client.send_message(message.channel, "Paste is ready @here")
+			await client.send_message(message.channel, "Server 188: Rag Paste is ready " + message.author)
 			paste = None
 		
-	elif cmd == "apaste":
-		if apaste:
+	elif cmd == "279paste":
+		if paste279:
 			await client.add_reaction(message, "🚫")
-			remaining = timedelta(seconds = 7200) - (datetime.now() - apaste)
+			remaining = timedelta(seconds = 7200) - (datetime.now() - paste279)
 			await client.send_message(message.channel, "An aberration paste timer is already running. Time remaining: " + str(remaining).split(".")[0])
 		else:
-			apaste = datetime.now()
+			paste279 = datetime.now()
 			await client.add_reaction(message, "✅")
 			await asyncio.sleep(7200)
-			await client.send_message(message.channel, "Aberration paste is ready @here")
-			apaste = None
+			await client.send_message(message.channel, "Server 279: Aberration paste is ready " + message.author)
+			paste279 = None
+
+	elif cmd == "284paste":
+                if paste284:
+			await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 7200) - (datetime.now() - paste284)
+			await client.send_message(message.channel, "An aberration paste timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			paste284 = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(7200)
+			await client.send_message(message.channel, "Server 284: Aberration paste is ready " + message.author)
+			paste284 = None		
+
+        elif cmd == "299paste":
+               if paste299:
+                	await client.add_reaction(message, "🚫")
+			remaining = timedelta(seconds = 7200) - (datetime.now() - paste299)
+			await client.send_message(message.channel, "An aberration paste timer is already running. Time remaining: " + str(remaining).split(".")[0])
+		else:
+			paste299 = datetime.now()
+			await client.add_reaction(message, "✅")
+			await asyncio.sleep(7200)
+			await client.send_message(message.channel, "Server 299: Aberration paste is ready " + message.author)
+			paste299 = None	
 			
 	elif cmd == "desert":
 		if desert:
@@ -113,9 +141,8 @@ async def on_message(message):
 			crops = datetime.now()
 			await client.add_reaction(message, "✅")
 			await asyncio.sleep(14400)
-			await client.send_message(message.channel, "The crops are ready @here")
+			await client.send_message(message.channel, "The crops are ready " + message.author)
 			crops = None
 				
-	
 print(os.getenv("BOT_TOKEN"))	
 client.run(os.getenv("BOT_TOKEN"))
