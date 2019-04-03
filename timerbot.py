@@ -145,4 +145,4 @@ async def on_message(message):
 			crops = None
 				
 print(os.getenv("BOT_TOKEN"))	
-client.run(os.getenv("BOT_TOKEN"))
+client.run(os.getenv("BOT_TOKEN")) 
